@@ -1,1 +1,40 @@
-<p>tasks works!</p>
+<div class="container">
+      <h4>Task List</h4>
+       <table class="table table-striped">
+         <thead>
+         <tr>
+           <th>ID</th>
+           <th>Title</th>
+           <th>Description</th>
+           <th>Creation Date</th>
+           <th>Start Date</th>
+           <th>End Date</th>
+           <th>Completed</th>
+           <th>Action</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr *ngFor="let task of tasks">
+           <td><a routerLink="/tasks/{{task.id}}">{{task.id}}</a></td>
+           <td>{{task.title}}</td>
+           <td>{{task.description}}</td>
+           <td>{{task.creationDate}}</td>
+
+           <td *ngIf="!task.StartDate"><button class="btn btn-success" (click)="startTask(task)">Start</button> </td>
+           <td *ngIf="task.StartDate">{{task.StartDate | date:'short'}}</td>
+
+           <td *ngIf="!task.EndDate"><button [disabled]="!task.StartDate" class="btn btn-success" (click)="endTask(task)">Close</button> </td>
+           <td *ngIf="task.EndDate">{{task.EndDate | date:'short'}}</td>
+
+           <td>{{task.completedDate}}</td>
+           <td><button [disabled]="task.EndDate" class="btn btn-success" (click)="editTask(task)" style="margin-right: 20px">Edit</button>
+
+             <button class="btn btn-danger" (click)="deleteTask(task)">Delete</button>
+           </td>
+         </tr>
+         </tbody>
+       </table>
+</div>
+
+
+

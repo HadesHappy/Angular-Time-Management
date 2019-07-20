@@ -1,1 +1,52 @@
-<p>edit-tasks works!</p>
+<div class="row"><div *ngIf="task" class="col-6">
+  <div class="card">
+    <div class="card-header bg-info">Edit Task</div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label  for="id">Id</label>
+          <input class="form-control" readonly [(ngModel)]="task.id" name="id" id="id">
+        </div>
+
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input class="form-control" readonly [(ngModel)]="task.title" name="title" id="title">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input class="form-control" readonly [(ngModel)]="task.description" name="description" id="description">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="update(task)">Update</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="mode =='comfirm'" class="col-6">
+  <div class="card">
+    <div class="card-header bg-info">Edit Task</div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label>Id:</label>
+          <input class="form-control" readonly [(ngModel)]="task.id" name="id">
+        </div>
+
+        <div class="form-group">
+          <label>Title:</label>
+          <input class="form-control"  [(ngModel)]="task.title" name="title">
+        </div>
+
+        <div class="form-group">
+          <label >Description:</label>
+          <input class="form-control" [(ngModel)]="task.description" name="description">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="updateTask(task)">Comfirm</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>

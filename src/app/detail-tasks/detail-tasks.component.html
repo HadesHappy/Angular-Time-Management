@@ -1,1 +1,59 @@
-<p>detail-tasks works!</p>
+<div class="row"><div *ngIf="task" class="col-6">
+  <div class="card">
+    <div class="card-header bg-info">Edit Task</div>
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label>Id:</label>
+          <input class="form-control" readonly [(ngModel)]="task.id" name="id">
+        </div>
+
+        <div class="form-group">
+          <label>Title:</label>
+          <input class="form-control" [(ngModel)]="task.title" name="title">
+        </div>
+
+        <div class="form-group">
+          <label >Description:</label>
+          <input class="form-control" [(ngModel)]="task.description" name="description">
+        </div>
+
+        <div class="form-group">
+          <label >Creation Date:</label>
+          <input class="form-control" [ngModel]="task.creationDate | date:'short'" (ngModelChange)="task.creationDate" name="creation">
+        </div>
+
+
+        <div class="form-group">
+          <label>Start Date:</label>
+          <input class="form-control" [(ngModel)]="task.StartDate"  name="startDate">
+        </div>
+
+
+        <div class="form-group">
+          <label>End Date:</label>
+          <input class="form-control" [(ngModel)]="task.EndDate "  name="endDate">
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+</div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header bg-info">
+        <div class="card-body">
+
+
+    <button [disabled]="!task.StartDate" type="submit" class="btn btn-success" (click)="startTask(task)" style="margin-right: 20px">Start</button>
+    <button [disabled]="!task.EndDate" type="submit" class="btn btn-success" (click)="endTask(task)" style="margin-right: 20px">Close</button>
+    <button [disabled]="!task.EndDate" type="submit" class="btn btn-success" (click)="editTask(task)" style="margin-right: 20px">Edit</button>
+    <button class="btn btn-danger" (click)="deleteTask(task)">Delete</button>
+
+  </div>
+</div>
+    </div>
+  </div>
+</div>

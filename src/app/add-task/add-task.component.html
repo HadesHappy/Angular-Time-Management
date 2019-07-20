@@ -1,1 +1,45 @@
-<p>add-task works!</p>
+<div class="row">
+  <div class="col-6">
+  <div class="card">
+    <div class="card-header bg-info">Add New Task</div>
+    <div class="card-body">
+      <form>
+
+        <div class="form-group">
+          <label>Title:</label>
+          <input class="form-control"  [(ngModel)]="task.title" name="title">
+        </div>
+
+        <div class="form-group">
+          <label >Description:</label>
+          <input class="form-control" [(ngModel)]="task.description" name="description">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="create(task)">Create</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="mode== 'confirm'" class="col-6">
+  <div class="card">
+    <div class="card-header bg-info">Confirmation</div>
+    <div class="card-body">
+      <form>
+
+        <div class="form-group">
+          <label>Title:</label>
+          <input class="form-control" readonly [(ngModel)]="task.title" name="title">
+        </div>
+
+        <div class="form-group">
+          <label >Description:</label>
+          <input class="form-control" readonly [(ngModel)]="task.description" name="description">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="createTask(task)">Confirm</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>

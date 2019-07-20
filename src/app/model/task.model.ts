@@ -6,6 +6,4 @@ export class Task{
   StartDate:Date;
   EndDate:Date;
   completedDate:boolean;
-
-
 }
